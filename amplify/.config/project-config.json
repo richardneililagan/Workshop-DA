@@ -1,0 +1,17 @@
+{
+  "projectName": "hugotest",
+  "version": "3.1",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "none",
+    "config": {
+      "SourceDir": "modern-web-app/workshop",
+      "DistributionDir": "modern-web-app/dist",
+      "BuildCommand": "hugo -s modern-web-app/workshop -d ../dist",
+      "StartCommand": "hugo -s modern-web-app/workshop serve"
+    }
+  },
+  "providers": [
+    "awscloudformation"
+  ]
+}

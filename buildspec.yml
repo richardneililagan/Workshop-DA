@@ -15,23 +15,25 @@ phases:
       - echo Installation done
   pre_build:
     commands:
-      - cd $CODEBUILD_SRC_DIR/workshop
+      - cd $CODEBUILD_SRC_DIR/modern-web-app/workshop
       - pip install -r requirements.txt
+      - cd $CODEBUILD_SRC_DIR
   build:
     commands:
       - echo Entered the build phase ...
       - echo Build started on `date`
-      - cd $CODEBUILD_SRC_DIR/workshop
-      - hugo --quiet
+      - hugo -s modern-web-app/workshop -d ../dist
+      # - cd $CODEBUILD_SRC_DIR/workshop
+      # - hugo --quiet
     finally:
       - echo Building the HTML files finished
-  post_build:
-    commands:
-      - cd $CODEBUILD_SRC_DIR/workshop
+  # post_build:
+  #   commands:
+  #     - cd $CODEBUILD_SRC_DIR/workshop
 
 artifacts:
   files:
     - "**/*"
     - "*"
-  base-directory: $CODEBUILD_SRC_DIR/workshop/public/
+  base-directory: $CODEBUILD_SRC_DIR/modern-web-app/workshop/dist/
   discard-paths: no

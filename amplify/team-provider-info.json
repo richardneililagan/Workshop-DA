@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hugotest-dev-130459-authRole",
+      "UnauthRoleArn": "arn:aws:iam::214400071163:role/amplify-hugotest-dev-130459-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::214400071163:role/amplify-hugotest-dev-130459-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-hugotest-dev-130459-deployment",
+      "UnauthRoleName": "amplify-hugotest-dev-130459-unauthRole",
+      "StackName": "amplify-hugotest-dev-130459",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:214400071163:stack/amplify-hugotest-dev-130459/47f57980-b14d-11eb-858b-02f31ecdf2d8",
+      "AmplifyAppId": "d237p9afkpeju3"
+    }
+  }
+}
