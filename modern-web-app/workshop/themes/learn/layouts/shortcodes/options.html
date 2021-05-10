@@ -1,0 +1,12 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+<div class="options">
+    {{ range $element := .Params }}
+    {{ $items := split $element ":" }}
+    <div class="option">
+        <a class="option_link" href="{{ index $items 2}}">
+            <div class="option_title">{{ index $items 0 }}</div>
+            <div class="option_text">{{ index $items 1 }}</div>
+        </a>
+    </div>
+    {{ end }}
+</div>

@@ -1,0 +1,61 @@
+RelativeURLs=true
+CanonifyURLs=true
+languageCode = "en-US"
+defaultContentLanguage = "en"
+
+title = "DevAx::Academy - Modern Web Applications"
+shortTitle = "Modern Web Applications"
+theme = "learn"
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
+
+uglyurls = true
+sectionPagesMenu = "main"
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+
+staticDir = ["../resources/templates/output", "static"]
+ 
+[params] 
+description = "DevAx::Academy - Modern Web Applications"
+author = ""
+disableBreadcrumb = false
+disableNextPrev = false
+themeVariant = "aws"
+disableSearch = false
+disableAssetsBusting = true
+disableLanguageSwitchingButton = false
+disableShortcutsTitle = true
+disableInlineCopyToClipBoard = true
+disableToc = true
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[blackfriday]
+plainIDAnchors = true
+hrefTargetBlank = true
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# [Languages]
+# [Languages.en]
+# title = "DevAx::Academy - Modern Web Applications"
+# weight = 1
+# languageName = "English"
+
+# [Languages.fr]
+# title = "Mon atelier AWS"
+# weight = 2
+# languageName = "Français"
+
+
+# [[Languages.en.menu.shortcuts]]
+# name = "<i class='fab fa-fw fa-github'></i> DevAx::GitHub"
+# identifier = "ds"
+# url = "https://github.com/aws-devax"
+# weight = 10
