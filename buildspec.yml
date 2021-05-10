@@ -1,39 +1,35 @@
 version: 0.2
-phases:
-  install:
-    runtime-versions:
-      golang: 1.12
-      nodejs: 10
-      python: 3.8
-    commands:
-      - echo Entered the install phase...
-      - apt-get -qq update && apt-get -qq install curl
-      - apt-get -qq install asciidoctor
-      - curl -s -L https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.deb -o hugo.deb
-      - dpkg -i hugo.deb
-    finally:
-      - echo Installation done
-  pre_build:
-    commands:
-      - cd $CODEBUILD_SRC_DIR/modern-web-app/workshop
-      - pip install -r requirements.txt
-      - cd $CODEBUILD_SRC_DIR
-  build:
-    commands:
-      - echo Entered the build phase ...
-      - echo Build started on `date`
-      - hugo -s modern-web-app/workshop -d ../dist
-      # - cd $CODEBUILD_SRC_DIR/workshop
-      # - hugo --quiet
-    finally:
-      - echo Building the HTML files finished
-  # post_build:
-  #   commands:
-  #     - cd $CODEBUILD_SRC_DIR/workshop
-
-artifacts:
-  files:
-    - "**/*"
-    - "*"
-  base-directory: $CODEBUILD_SRC_DIR/modern-web-app/workshop/dist/
-  discard-paths: no
+frontend:
+  phases:
+    install:
+      runtime-versions:
+        golang: 1.12
+        nodejs: 10
+        python: 3.8
+      commands:
+        - echo Entered the install phase...
+        - apt-get -qq update && apt-get -qq install curl
+        - apt-get -qq install asciidoctor
+        - curl -s -L https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.deb -o hugo.deb
+        - dpkg -i hugo.deb
+      finally:
+        - echo Installation done
+    pre_build:
+      commands:
+        - cd modern-web-app/workshop
+        - pip install -r requirements.txt
+        - cd ../..
+    build:
+      commands:
+        - echo Entered the build phase ...
+        - echo Build started on `date`
+        - hugo -s modern-web-app/workshop -d ../dist
+      finally:
+        - echo Building the HTML files finished
+  
+  artifacts:
+    files:
+      - "**/*"
+      - "*"
+    baseDirectory: modern-web-app/dist/
+    discardPaths: no
